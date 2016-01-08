@@ -23,8 +23,79 @@
     <!-- /End of header.php -->
 
     <header>
-        <h1>Hello.</h1>
-        <p>Anyone?</p>
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="<?php bloginfo( 'url' ); ?>">Brand</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="<?php bloginfo( 'url' ); ?>" title="Home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li><a href="#" title="Work">Work</a></li>
+                        <li><a href="#" title="About Me">About me</a></li>
+                        <li><a href="#" title="Services">Services</a></li>
+                        <li><a href="#" title="News">News</a></li>
+                        <li><a href="#" title="Contact">Contact</a></li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+
+            </div><!-- /.container -->
+        </nav>
+
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <div class="header-title">
+                            <div></div>
+                            <p>Say hello to my digital world</p>
+                            <div></div>
+                        </div>
+
+                        <?php
+                            $twitter = get_option( 'twitter_url' ); 
+                            $linkedin = get_option( 'linkedin_url' );
+                            $facebook = get_option( 'facebook_url' );
+                            $pinterest = get_option( 'pinterest_url' );
+                        ?>
+
+                        <ul class="social-links clearfix">
+                            <?php if( $twitter ) : ?>
+                                <li><a href="<?php echo $twitter; ?>" title="Twitter" target="_blank">Twitter</a></li>
+                            <?php endif; ?>
+                            <?php if( $linkedin ) : ?>
+                                <li><a href="<?php echo $linkedin; ?>" title="LinkedIn" target="_blank">LinkedIn</a></li>
+                            <?php endif; ?>
+                            <?php if( $facebook ) : ?>
+                                <li><a href="<?php echo $facebook; ?>" title="Facebook" target="_blank">Facebook</a></li>
+                            <?php endif; ?>
+                            <?php if ( $pinterest ) : ?>
+                                <li><a href="<?php echo $pinterest; ?>" title="Pinterest" target="_blank">Pinterest</a></li>
+                            <?php endif; ?>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </header>
 
 

@@ -67,12 +67,280 @@ a img {
   border: 0; }
 
 body {
-  font: 100% Helvetica, sans-serif;
+  font: 100% Helvetica, Arial, sans-serif;
   background-color: #EFEFEF; }
 
 h1 {
   font-size: 56px; }
 
 p {
-  color: #444;
+  color: #444; }
+
+img.responsive {
+  width: 100%;
+  height: auto; }
+
+header {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover; }
+
+.navbar {
+  border-radius: 0;
+  border: none; }
+
+.navbar-default {
+  background-color: rgba(255, 255, 255, 0.25); }
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFF;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
   text-transform: uppercase; }
+
+.nav > li > a {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+  background: rgba(255, 255, 255, 0.75); }
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.1); }
+
+.header-title div {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.75); }
+
+.header-title p {
+  font-size: 56px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 64px; }
+
+.social-links {
+  margin: 10px 0 20px; }
+  .social-links li {
+    float: left;
+    display: block;
+    margin-right: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px; }
+  .social-links a {
+    display: block;
+    color: #FFF;
+    padding: 5px 10px;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none; }
+
+.subtitle {
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase; }
+  .subtitle h2 {
+    display: inline;
+    font-size: 38px;
+    font-weight: 700;
+    color: #000;
+    border-bottom: 3px solid #000; }
+
+.sub-blurb {
+  text-align: center; }
+  .sub-blurb strong {
+    font-weight: 700; }
+
+.project, .service, .news {
+  display: block;
+  margin-bottom: 15px; }
+  .project h3, .service h3, .news h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #000;
+    margin: 15px 0;
+    text-align: center;
+    text-transform: uppercase; }
+  .project div, .service div, .news div {
+    height: 2px;
+    background: #000;
+    margin-bottom: 10px; }
+  .project p, .service p, .news p {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 10px; }
+  .project a, .service a, .news a {
+    display: block;
+    width: 110px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid #000;
+    margin: 0 auto;
+    padding: 5px;
+    text-transform: uppercase;
+    text-align: center; }
+  .project a:hover, .project a:focus, .service a:hover, .service a:focus, .news a:hover, .news a:focus {
+    text-decoration: none; }
+
+.service .underline, .news .underline {
+  padding: 0 0 15px;
+  border-bottom: 2px solid #000; }
+
+.news span {
+  display: block;
+  width: 50px;
+  margin: 15px auto 0;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 2px solid #000; }
+
+.news .date {
+  font-size: 30px;
+  line-height: 26px;
+  margin: 0; }
+
+.news .year {
+  margin: 0; }
+
+.clients {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+  text-align: center; }
+  .clients ul {
+    display: inline-block; }
+    .clients ul li {
+      float: left;
+      margin-right: 15px; }
+      .clients ul li img {
+        display: block;
+        width: 100px;
+        height: 100px; }
+    .clients ul li:last-of-type {
+      margin-right: 0; }
+
+.about h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #000;
+  margin: 15px 0;
+  text-transform: uppercase; }
+
+.about strong {
+  font-weight: 700; }
+
+.about .skill-bar {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background: #CCC;
+  margin-bottom: 5px; }
+  .about .skill-bar p {
+    position: absolute;
+    line-height: 30px;
+    padding: 0 10px;
+    color: #FFF; }
+  .about .skill-bar p.right {
+    right: 0;
+    text-align: right; }
+  .about .skill-bar div {
+    position: absolute;
+    height: 30px;
+    background: #000; }
+
+.twitter, .quote {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+  text-align: center; }
+  .twitter p, .quote p {
+    display: inline-block;
+    position: relative;
+    color: #FFF;
+    margin: 15px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    line-height: 50px; }
+  .twitter p:after, .quote p:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0.25);
+    border-width: 15px;
+    margin-left: -15px; }
+  .twitter img, .quote img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px; }
+  .twitter span, .quote span {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 5px 15px;
+    color: #000;
+    background: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase; }
+  .twitter strong, .quote strong {
+    font-weight: 700; }
+
+.see-more {
+  text-align: center; }
+  .see-more a {
+    display: inline-block;
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid #000;
+    margin: 0 auto;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    text-align: center; }
+  .see-more a:hover, .see-more a:focus {
+    text-decoration: none; }
+
+footer {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+  text-align: center; }
+  footer .see-more a {
+    color: #FFF;
+    border: 2px solid #FFF; }
+  footer .subtitle h2 {
+    color: #FFF;
+    border-bottom: 3px solid #FFF; }
+  footer p {
+    color: #FFF;
+    font-weight: 700;
+    margin-bottom: 15px; }
+  footer .copyright {
+    color: #FFF;
+    font-size: 9px;
+    font-weight: 400; }
+  footer .social-links {
+    display: inline-block; }
+
+.spacer {
+  min-height: 30px; }
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px; } }

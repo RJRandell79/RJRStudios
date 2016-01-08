@@ -1,6 +1,129 @@
 
 @import 'partials/reset';
 
-body { font: 100% Helvetica, sans-serif; background-color: #EFEFEF; }
+@mixin border-radius( $radius ) { -webkit-border-radius: $radius; -moz-border-radius: $radius; -ms-border-radius: $radius; border-radius: $radius; }
+
+$white75: rgba( 255, 255, 255, 0.75 );
+$white25: rgba( 255, 255, 255, 0.25 );
+$black30: rgba( 0, 0, 0, 0.3 ); 
+$black10: rgba( 0, 0, 0, 0.1 ); 
+
+body { font: 100% Helvetica, Arial, sans-serif; background-color: #EFEFEF; }
 h1 { font-size: 56px; }
-p { color: #444; text-transform: uppercase; }
+p { color: #444; }
+img.responsive { width: 100%; height: auto; }
+
+header { background: url(../img/blurred-trees.jpg); background-size: cover; }
+
+.navbar { border-radius: 0; border: none; }
+.navbar-default { background-color: $white25; }
+.navbar-default .navbar-nav > li > a { color: #FFF; font-size: 10px; background: $black30; @include border-radius( 5px ); text-transform: uppercase; }
+.nav > li > a { margin-left: 5px; margin-right: 5px; padding: 10px; }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover { background: $white75; }
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover { color: #FFF; background: $black10; }
+
+.header-title { 
+	div { height: 2px; background: $white75; }
+	p { font-size: 56px; color: $white75; margin: 10px 0; text-transform: uppercase; font-weight: 700; line-height: 64px; } 
+}
+
+.social-links { 
+	li { float: left; display: block; margin-right: 5px; background: $black30; @include border-radius( 5px );  } 
+	a { display: block; color: #FFF; padding: 5px 10px; font-size: 10px; text-align: center; text-transform: uppercase; text-decoration: none; }
+
+	margin: 10px 0 20px; 
+}
+
+.subtitle { 
+	h2 { display: inline; font-size: 38px; font-weight: 700; color: #000; border-bottom: 3px solid #000; }
+
+	margin-bottom: 30px; text-align: center; text-transform: uppercase; 
+}
+.sub-blurb { 
+	strong { font-weight: 700; }
+
+	text-align: center; 
+}
+
+.project, .service, .news { 
+	h3 { font-size: 21px; font-weight: 700; color: #000; margin: 15px 0; text-align: center; text-transform: uppercase; }
+	div { height: 2px; background: #000; margin-bottom: 10px; }
+	p { font-size: 12px; text-align: center; margin-bottom: 10px; }
+	a { display: block; width: 110px; color: #000; font-size: 12px; font-weight: 700; border: 2px solid #000; margin: 0 auto; padding: 5px; text-transform: uppercase; text-align: center; }
+	a:hover, a:focus { text-decoration: none; }
+
+	display: block; margin-bottom: 15px;
+}
+
+.service, .news {
+	.underline { padding: 0 0 15px; border-bottom: 2px solid #000; }
+}
+
+.news {
+	span { display: block; width: 50px; margin: 15px auto 0; padding: 5px; text-align: center; text-transform: uppercase; font-weight: 700; border: 2px solid #000; }
+	.date { font-size: 30px; line-height: 26px; margin: 0; }
+	.year { margin: 0; }
+}
+
+.clients { 
+	ul { 
+		li { 
+			img { display: block; width: 100px; height: 100px; }
+
+		float: left; margin-right: 15px; 
+		}
+		li:last-of-type { margin-right: 0; }
+
+		display: inline-block; 
+	}
+	background: url(../img/blurred-trees.jpg); background-size: cover; text-align: center;
+}
+
+.about {
+	h2 { font-size: 38px; font-weight: 700; color: #000; margin: 15px 0; text-transform: uppercase; }
+	strong { font-weight: 700; }
+	.skill-bar { 
+		p { position: absolute; line-height: 30px; padding: 0 10px; color: #FFF; } 
+		p.right { right: 0; text-align: right; }
+		div { position: absolute; height: 30px; background: #000; }
+
+		position: relative; width: 100%; height: 30px; background: #CCC; margin-bottom: 5px;
+	}
+}
+
+.twitter, .quote {
+	p { display: inline-block; position: relative; color: #FFF; margin: 15px 0; padding: 30px; background: rgba( 255, 255, 255, 0.25 ); line-height: 50px; }
+	p:after { top: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-color: rgba( 255, 255, 255, 0 ); border-top-color: rgba( 255, 255, 255, 0.25 ); border-width: 15px; margin-left: -15px; }
+	img { width: 50px; height: 50px; margin-bottom: 15px; }
+	span { display: inline-block; margin: 15px 0; padding: 5px 15px; color: #000; background: rgba( 255, 255, 255, 0.75); text-transform: uppercase; }
+	strong { font-weight: 700; }
+
+	background: url(../img/blurred-trees.jpg); background-size: cover; text-align: center;
+}
+
+.see-more {
+	a { display: inline-block; color: #000; font-size: 12px; font-weight: 700; border: 2px solid #000; margin: 0 auto; padding: 5px 15px; text-transform: uppercase; text-align: center; }
+	a:hover, a:focus { text-decoration: none; }
+
+	text-align: center;
+}
+
+footer {
+	.see-more {
+		a { color: #FFF; border: 2px solid #FFF; }
+	}
+	.subtitle { 
+		h2 { color: #FFF; border-bottom: 3px solid #FFF; }
+	}
+	p { color: #FFF; font-weight: 700; margin-bottom: 15px; }
+	.copyright { color: #FFF; font-size: 9px; font-weight: 400; }
+	.social-links { display: inline-block; }
+
+	background: url(../img/blurred-trees.jpg); background-size: cover; text-align: center;
+}
+
+.spacer { min-height: 30px; }
+
+@media (min-width: 768px) {
+	.navbar-nav > li > a { margin-top: 10px; margin-bottom: 10px; padding-top: 5px; padding-bottom: 5px; }
+} 

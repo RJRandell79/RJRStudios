@@ -80,6 +80,7 @@ module.exports = function(grunt) {
 	    			style: 'expanded'
 	  			},
       			files: {
+      				'wp-content/themes/rjrstudios/src/css/bootstrap.css': 'wp-content/themes/rjrstudios/src/scss/bootstrap.scss',
       				'wp-content/themes/rjrstudios/src/css/rjr_theme.css': 'wp-content/themes/rjrstudios/src/scss/rjr_theme.scss'
               	}
     		}

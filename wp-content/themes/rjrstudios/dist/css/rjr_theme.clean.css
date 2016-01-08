@@ -1,17 +1,19 @@
 /*** uncss> filename: http://localhost/RJRStudios/wp-content/themes/rjrstudios/src/css/bootstrap.css ***/
 
+@charset "UTF-8";
+
 /*!
- * Bootstrap v3.3.4 (http://getbootstrap.com)
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 html {
   font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -19,7 +21,9 @@ body {
 }
 
 article,
+footer,
 header,
+nav,
 section {
   display: block;
 }
@@ -33,15 +37,37 @@ a:hover {
   outline: 0;
 }
 
-h1 {
-  margin: .67em 0;
-  font-size: 2em;
+strong {
+  font-weight: bold;
+}
+
+img {
+  border: 0;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button {
+  text-transform: none;
+}
+
+button {
+  -webkit-appearance: button;
+  cursor: pointer;
 }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  padding: 0;
   border: 0;
+  padding: 0;
 }
 
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -50,11 +76,10 @@ input::-moz-focus-inner {
   *,
   *:before,
   *:after {
-    color: #000 !important;
-    text-shadow: none !important;
     background: transparent !important;
-    -webkit-box-shadow: none !important;
+    color: #000 !important;
     box-shadow: none !important;
+    text-shadow: none !important;
   }
 
   a,
@@ -70,21 +95,35 @@ input::-moz-focus-inner {
     content: "";
   }
 
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
   p,
-  h2 {
+  h2,
+  h3 {
     orphans: 3;
     widows: 3;
   }
 
-  h2 {
+  h2,
+  h3 {
     page-break-after: avoid;
+  }
+
+  .navbar {
+    display: none;
   }
 }
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 
 * {
@@ -102,15 +141,21 @@ input::-moz-focus-inner {
 
 html {
   font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
+  line-height: 1.428571429;
+  color: #333333;
   background-color: #fff;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 a {
@@ -130,37 +175,67 @@ a:focus {
   outline-offset: -2px;
 }
 
-h1,
-h2 {
+img {
+  vertical-align: middle;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+h2,
+h3 {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
 }
 
-h1,
-h2 {
+h2,
+h3 {
   margin-top: 20px;
   margin-bottom: 10px;
-}
-
-h1 {
-  font-size: 36px;
 }
 
 h2 {
   font-size: 30px;
 }
 
+h3 {
+  font-size: 24px;
+}
+
 p {
   margin: 0 0 10px;
 }
 
+ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container:before,
+.container:after {
+  content: " ";
+  display: table;
+}
+
+.container:after {
+  clear: both;
 }
 
 @media (min-width: 768px) {
@@ -182,37 +257,69 @@ p {
 }
 
 .container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container-fluid:before,
+.container-fluid:after {
+  content: " ";
+  display: table;
+}
+
+.container-fluid:after {
+  clear: both;
 }
 
 .row {
-  margin-right: -15px;
   margin-left: -15px;
+  margin-right: -15px;
 }
 
-.col-md-3,
-.col-md-6 {
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+.col-md-4,
+.col-md-6,
+.col-md-8,
+.col-md-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 @media (min-width: 992px) {
-  .col-md-3,
-  .col-md-6 {
+  .col-md-4,
+  .col-md-6,
+  .col-md-8,
+  .col-md-12 {
     float: left;
+  }
+
+  .col-md-4 {
+    width: 33.3333333333%;
   }
 
   .col-md-6 {
     width: 50%;
   }
 
-  .col-md-3 {
-    width: 25%;
+  .col-md-8 {
+    width: 66.6666666667%;
+  }
+
+  .col-md-12 {
+    width: 100%;
   }
 }
 
@@ -225,19 +332,277 @@ p {
   color: #999;
 }
 
-.container:before,
-.container:after,
-.container-fluid:before,
-.container-fluid:after,
-.row:before,
-.row:after {
-  display: table;
-  content: " ";
+.form-control::-ms-expand {
+  border: 0;
+  background-color: transparent;
 }
 
-.container:after,
-.container-fluid:after,
-.row:after {
+.collapse {
+  display: none;
+}
+
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.nav:before,
+.nav:after {
+  content: " ";
+  display: table;
+}
+
+.nav:after {
+  clear: both;
+}
+
+.nav > li {
+  position: relative;
+  display: block;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+.navbar:before,
+.navbar:after {
+  content: " ";
+  display: table;
+}
+
+.navbar:after {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 4px;
+  }
+}
+
+.navbar-header:before,
+.navbar-header:after {
+  content: " ";
+  display: table;
+}
+
+.navbar-header:after {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .navbar-header {
+    float: left;
+  }
+}
+
+.navbar-collapse {
+  overflow-x: visible;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  -webkit-overflow-scrolling: touch;
+}
+
+.navbar-collapse:before,
+.navbar-collapse:after {
+  content: " ";
+  display: table;
+}
+
+.navbar-collapse:after {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+  }
+
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+}
+
+.container > .navbar-header,
+.container > .navbar-collapse {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+  .container > .navbar-header,
+  .container > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.navbar-brand {
+  float: left;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 50px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .navbar > .container .navbar-brand {
+    margin-left: -15px;
+  }
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.navbar-toggle:focus {
+  outline: 0;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+.navbar-nav {
+  margin: 7.5px -15px;
+}
+
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+
+  .navbar-nav > li {
+    float: left;
+  }
+
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-right {
+    float: right !important;
+    margin-right: -15px;
+  }
+}
+
+.navbar-default {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-brand {
+  color: #777;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #777;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #ddd;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #ddd;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+
+.navbar-default .navbar-collapse {
+  border-color: #e7e7e7;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
   clear: both;
 }
 
@@ -251,8 +616,6 @@ p {
   }
 }
 
-/*# sourceMappingURL=bootstrap.css.map */
-
 /*** uncss> filename: http://localhost/RJRStudios/wp-content/themes/rjrstudios/src/css/rjr_theme.css ***/
 
 /** 
@@ -264,10 +627,14 @@ p {
 html,
 body,
 div,
-h1,
+span,
 h2,
+h3,
 p,
-a {
+a,
+strong,
+ul,
+li {
   border: 0;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -304,9 +671,15 @@ body {
 }
 
 article,
+footer,
 header,
+nav,
 section {
   display: block;
+}
+
+ul {
+  list-style: none;
 }
 
 a:focus {
@@ -320,15 +693,384 @@ a:focus {
 }
 
 body {
-  font: 100% Helvetica, sans-serif;
+  font: 100% Helvetica, Arial, sans-serif;
   background-color: #EFEFEF;
-}
-
-h1 {
-  font-size: 56px;
 }
 
 p {
   color: #444;
+}
+
+img.responsive {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+}
+
+.navbar {
+  border-radius: 0;
+  border: none;
+}
+
+.navbar-default {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFF;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
   text-transform: uppercase;
+}
+
+.nav > li > a {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.header-title div {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.header-title p {
+  font-size: 56px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+.social-links {
+  margin: 10px 0 20px;
+}
+
+.social-links li {
+  float: left;
+  display: block;
+  margin-right: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.social-links a {
+  display: block;
+  color: #FFF;
+  padding: 5px 10px;
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subtitle h2 {
+  display: inline;
+  font-size: 38px;
+  font-weight: 700;
+  color: #000;
+  border-bottom: 3px solid #000;
+}
+
+.sub-blurb {
+  text-align: center;
+}
+
+.sub-blurb strong {
+  font-weight: 700;
+}
+
+.project,
+.service,
+.news {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.project h3,
+.service h3,
+.news h3 {
+  font-size: 21px;
+  font-weight: 700;
+  color: #000;
+  margin: 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.project div {
+  height: 2px;
+  background: #000;
+  margin-bottom: 10px;
+}
+
+.project p,
+.service p,
+.news p {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.project a,
+.service a,
+.news a {
+  display: block;
+  width: 110px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid #000;
+  margin: 0 auto;
+  padding: 5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.project a:hover,
+.project a:focus,
+.service a:hover,
+.service a:focus,
+.news a:hover,
+.news a:focus {
+  text-decoration: none;
+}
+
+.service .underline,
+.news .underline {
+  padding: 0 0 15px;
+  border-bottom: 2px solid #000;
+}
+
+.news span {
+  display: block;
+  width: 50px;
+  margin: 15px auto 0;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 2px solid #000;
+}
+
+.news .date {
+  font-size: 30px;
+  line-height: 26px;
+  margin: 0;
+}
+
+.news .year {
+  margin: 0;
+}
+
+.clients {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+  text-align: center;
+}
+
+.clients ul {
+  display: inline-block;
+}
+
+.clients ul li {
+  float: left;
+  margin-right: 15px;
+}
+
+.clients ul li img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.clients ul li:last-of-type {
+  margin-right: 0;
+}
+
+.about h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #000;
+  margin: 15px 0;
+  text-transform: uppercase;
+}
+
+.about strong {
+  font-weight: 700;
+}
+
+.about .skill-bar {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background: #CCC;
+  margin-bottom: 5px;
+}
+
+.about .skill-bar p {
+  position: absolute;
+  line-height: 30px;
+  padding: 0 10px;
+  color: #FFF;
+}
+
+.about .skill-bar p.right {
+  right: 0;
+  text-align: right;
+}
+
+.about .skill-bar div {
+  position: absolute;
+  height: 30px;
+  background: #000;
+}
+
+.twitter,
+.quote {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+  text-align: center;
+}
+
+.twitter p,
+.quote p {
+  display: inline-block;
+  position: relative;
+  color: #FFF;
+  margin: 15px 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.25);
+  line-height: 50px;
+}
+
+.twitter p:after,
+.quote p:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: rgba(255, 255, 255, 0.25);
+  border-width: 15px;
+  margin-left: -15px;
+}
+
+.twitter img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.quote span {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 5px 15px;
+  color: #000;
+  background: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+}
+
+.quote strong {
+  font-weight: 700;
+}
+
+.see-more {
+  text-align: center;
+}
+
+.see-more a {
+  display: inline-block;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid #000;
+  margin: 0 auto;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.see-more a:hover,
+.see-more a:focus {
+  text-decoration: none;
+}
+
+footer {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+  text-align: center;
+}
+
+footer .see-more a {
+  color: #FFF;
+  border: 2px solid #FFF;
+}
+
+footer .subtitle h2 {
+  color: #FFF;
+  border-bottom: 3px solid #FFF;
+}
+
+footer p {
+  color: #FFF;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+footer .copyright {
+  color: #FFF;
+  font-size: 9px;
+  font-weight: 400;
+}
+
+footer .social-links {
+  display: inline-block;
+}
+
+.spacer {
+  min-height: 30px;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }

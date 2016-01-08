@@ -50,6 +50,72 @@ add_action( 'init', 'add_thememenu_support' );
 
 add_theme_support( 'post-thumbnails' );
 
+/* -- Custom Post Types -- */
+
+function register_cpt_projects() {
+  
+    $labels = array( 
+        'name' => _x( 'Projects', 'projects' ),
+        'singular_name' => _x( 'Project', 'projects' ),
+        'add_new' => _x( 'Add New Project', 'projects' ),
+        'add_new_item' => _x( 'Add New Project', 'projects' ),
+        'edit_item' => _x( 'Edit Project', 'projects' ),
+        'new_item' => _x( 'New Project', 'projects' ),
+        'view_item' => _x( 'View Project', 'projects' ),
+        'search_items' => _x( 'Search Projects', 'projects' ),
+        'not_found' => _x( 'No projects found', 'projects' ),
+        'not_found_in_trash' => _x( 'No project found in Trash', 'projects' ),
+        'parent_item_colon' => _x( 'Parent Project:', 'projects' ),
+        'menu_name' => _x( 'Projects', 'projects' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail' ),
+        'taxonomies' => array( 'post_tag', 'page-category', 'Projects' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-images-alt2',
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+    register_post_type( 'projects', $args );
+}
+add_action( 'init', 'register_cpt_projects' );
+
+/* -- Custom Post Categories -- */
+
+function taxonomies_projects() {
+    $labels = array(
+        'name' => _x( 'Project Categories', 'taxonomy general name' ),
+        'singular_name' => _x( 'Project Category', 'taxonomy singular name' ),
+        'search_items' => __( 'Search Project Categories' ),
+        'all_items' => __( 'All Project Categories' ),
+        'parent_item' => __( 'Parent Project Category' ),
+        'parent_item_colon' => __( 'Parent Project Category:' ),
+        'edit_item' => __( 'Edit Project Category' ), 
+        'update_item' => __( 'Update Project Category' ),
+        'add_new_item' => __( 'Add New Project Category' ),
+        'new_item_name' => __( 'New Prject Category' ),
+        'menu_name' => __( 'Project Categories' )
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true
+    );
+    register_taxonomy( 'taxonomies_projects', 'projects', $args );
+}
+add_action( 'init', 'taxonomies_projects', 0 );
+
 /* -- Pagination -- */
 
 function html5wp_pagination() {
@@ -98,6 +164,11 @@ function theme_settings_page() { ?>
                 </tr>
 
                 <tr>
+                    <td><label for="pinterest_url">Pinterest </label></td>
+                    <td><input type="text" id="pinterest_url" name="pinterest_url" size="45" value="<?php echo esc_attr( get_option( 'pinterest_url' ) ); ?>" /></td>
+                </tr>
+
+                <tr>
                     <td><label for="phone_no">Phone Number </label></td>
                     <td><input type="text" id="phone_no" name="phone_no" size="45" value="<?php echo esc_attr( get_option( 'phone_no' ) ); ?>" /></td>
                 </tr>
@@ -128,6 +199,7 @@ function register_sections_settings() {
     register_setting( 'options-section', 'twitter_url' );
     register_setting( 'options-section', 'facebook_url' );
     register_setting( 'options-section', 'linkedin_url' );
+    register_setting( 'options-section', 'pinterest_url' );
     register_setting( 'options-section', 'phone_no' );
     register_setting( 'options-section', 'email_address' );
     register_setting( 'options-section', 'analytics' );
