@@ -46,9 +46,39 @@ function add_thememenu_support() {
 }
 add_action( 'init', 'add_thememenu_support' );
 
-/* -- Theme Support -- */
+/* -- Theme Support and Removals -- */
 
 add_theme_support( 'post-thumbnails' );
+
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+/* -- Sidebar/Widgets -- */
+
+if ( function_exists( 'register_sidebar' ) ) {
+    register_sidebar(
+        array(
+            'id' => 'twitter',
+            'name'=> 'Twitter Sidebar',
+            'before_title' => '',
+            'after_title' => '',
+            'before_widget' => '',
+            'after_widget' => '',
+        )
+    );
+    register_sidebar(
+        array(
+            'id' => 'blog-sidebar',
+            'name' => 'Blog Sidebar',
+            'before_title' => '<p><strong>',
+            'after_title' => '</strong></p>',
+            'before_widget' => '<div class="post-widget border-bottom">',
+            'after_widget' => '</div>',
+        )
+    );
+}
 
 /* -- Custom Post Types -- */
 
@@ -90,6 +120,45 @@ function register_cpt_projects() {
     register_post_type( 'projects', $args );
 }
 add_action( 'init', 'register_cpt_projects' );
+
+function register_cpt_services() {
+  
+    $labels = array( 
+        'name' => _x( 'Services', 'services' ),
+        'singular_name' => _x( 'Service', 'services' ),
+        'add_new' => _x( 'Add New Service', 'services' ),
+        'add_new_item' => _x( 'Add New Service', 'services' ),
+        'edit_item' => _x( 'Edit Service', 'services' ),
+        'new_item' => _x( 'New Service', 'services' ),
+        'view_item' => _x( 'View Service', 'services' ),
+        'search_items' => _x( 'Search Services', 'services' ),
+        'not_found' => _x( 'No services found', 'services' ),
+        'not_found_in_trash' => _x( 'No service found in Trash', 'services' ),
+        'parent_item_colon' => _x( 'Parent Service:', 'services' ),
+        'menu_name' => _x( 'Services', 'services' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail' ),
+        'taxonomies' => array( 'post_tag', 'page-category', 'Services' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-media-code',
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+    register_post_type( 'services', $args );
+}
+add_action( 'init', 'register_cpt_services' );
 
 /* -- Custom Post Categories -- */
 
@@ -224,6 +293,6 @@ function js_async_attr( $tag ) {
     }
     return str_replace( ' src', ' async="async" src', $tag );
 }
-add_filter( 'script_loader_tag', 'js_async_attr', 10 );
+// add_filter( 'script_loader_tag', 'js_async_attr', 10 );
 
 ?>

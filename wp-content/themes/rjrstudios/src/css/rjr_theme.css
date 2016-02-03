@@ -101,15 +101,19 @@ header {
   border-radius: 5px;
   text-transform: uppercase; }
 
+.nav > li {
+  display: inline-block; }
+
 .nav > li > a {
   margin-left: 5px;
   margin-right: 5px;
   padding: 10px; }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-  background: rgba(255, 255, 255, 0.75); }
+.navbar-default .navbar-nav .current_page_item > a, .navbar-default .navbar-nav .current_page_item > a:focus, .navbar-default .navbar-nav .current_page_item > a:hover {
+  background: rgba(255, 255, 255, 0.75);
+  color: #000; }
 
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+.navbar-default .navbar-nav li > a:focus, .navbar-default .navbar-nav li > a:hover {
   color: #FFF;
   background: rgba(0, 0, 0, 0.1); }
 
@@ -154,6 +158,7 @@ header {
     font-size: 38px;
     font-weight: 700;
     color: #000;
+    line-height: 52px;
     border-bottom: 3px solid #000; }
 
 .sub-blurb {
@@ -179,7 +184,7 @@ header {
     font-size: 12px;
     text-align: center;
     margin-bottom: 10px; }
-  .project a, .service a, .news a {
+  .project a.read-more, .service a.read-more, .news a.read-more {
     display: block;
     width: 110px;
     color: #000;
@@ -190,7 +195,7 @@ header {
     padding: 5px;
     text-transform: uppercase;
     text-align: center; }
-  .project a:hover, .project a:focus, .service a:hover, .service a:focus, .news a:hover, .news a:focus {
+  .project a.read-more:hover, .project a.read-more:focus, .service a.read-more:hover, .service a.read-more:focus, .news a.read-more:hover, .news a.read-more:focus {
     text-decoration: none; }
 
 .service .underline, .news .underline {
@@ -226,8 +231,8 @@ header {
       margin-right: 15px; }
       .clients ul li img {
         display: block;
-        width: 100px;
-        height: 100px; }
+        width: 60px;
+        height: 60px; }
     .clients ul li:last-of-type {
       margin-right: 0; }
 
@@ -236,10 +241,16 @@ header {
   font-weight: 700;
   color: #000;
   margin: 15px 0;
+  line-height: 52px;
   text-transform: uppercase; }
 
 .about strong {
+  font-size: 12px;
   font-weight: 700; }
+
+.about p {
+  font-size: 12px;
+  margin-bottom: 10px; }
 
 .about .skill-bar {
   position: relative;
@@ -260,19 +271,26 @@ header {
     height: 30px;
     background: #000; }
 
-.twitter, .quote {
+.twitter {
   background: url(../img/blurred-trees.jpg);
   background-size: cover;
   text-align: center; }
-  .twitter p, .quote p {
+  .twitter .twitterwidget-title {
+    display: none; }
+  .twitter ul li {
     display: inline-block;
     position: relative;
     color: #FFF;
     margin: 15px 0;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.25);
-    line-height: 50px; }
-  .twitter p:after, .quote p:after {
+    background: rgba(255, 255, 255, 0.25); }
+    .twitter ul li span.entry-content a {
+      color: #FFF;
+      font-weight: 700;
+      text-decoration: none; }
+    .twitter ul li span.entry-content a:hover, .twitter ul li span.entry-content a:focus {
+      text-decoration: underline; }
+  .twitter ul li:after {
     top: 100%;
     left: 50%;
     border: solid transparent;
@@ -285,18 +303,57 @@ header {
     border-top-color: rgba(255, 255, 255, 0.25);
     border-width: 15px;
     margin-left: -15px; }
-  .twitter img, .quote img {
+  .twitter ul li span.entry-meta {
+    display: block; }
+    .twitter ul li span.entry-meta .from-meta {
+      display: none; }
+    .twitter ul li span.entry-meta .time-meta a {
+      color: #FFF;
+      font-size: 9px;
+      text-decoration: none;
+      cursor: default; }
+  .twitter img {
     width: 50px;
     height: 50px;
     margin-bottom: 15px; }
-  .twitter span, .quote span {
+
+.quote {
+  background: url(../img/blurred-trees.jpg);
+  background-size: cover;
+  text-align: center; }
+  .quote p {
+    display: inline-block;
+    position: relative;
+    color: #FFF;
+    margin: 15px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    line-height: 50px; }
+  .quote p:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0.25);
+    border-width: 15px;
+    margin-left: -15px; }
+  .quote img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px; }
+  .quote span {
     display: inline-block;
     margin: 15px 0;
     padding: 5px 15px;
     color: #000;
     background: rgba(255, 255, 255, 0.75);
     text-transform: uppercase; }
-  .twitter strong, .quote strong {
+  .quote strong {
     font-weight: 700; }
 
 .see-more {
@@ -313,6 +370,159 @@ header {
     text-align: center; }
   .see-more a:hover, .see-more a:focus {
     text-decoration: none; }
+
+.pagination {
+  text-align: center;
+  width: 100%; }
+  .pagination span, .pagination a {
+    display: inline-block;
+    color: #000;
+    font-weight: 700;
+    padding: 5px 10px;
+    border: 2px solid #000;
+    text-transform: uppercase;
+    text-decoration: none; }
+  .pagination span.current {
+    background: #000;
+    color: #FFF; }
+
+.single-project h3, .single-news h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px; }
+
+.single-project h5, .single-news h5 {
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 5px; }
+
+.single-project h6, .single-news h6 {
+  font-weight: 700;
+  color: #000;
+  margin: 15px 0;
+  padding-bottom: 5px; }
+
+.single-project p, .single-news p {
+  font-size: 12px;
+  margin-bottom: 5px;
+  padding-bottom: 5px; }
+  .single-project p strong, .single-news p strong {
+    font-size: 12px;
+    font-weight: 700; }
+
+.single-project blockquote, .single-news blockquote {
+  font-size: 12px;
+  margin-bottom: 5px;
+  padding-bottom: 5px; }
+
+.single-project img, .single-news img {
+  width: 100%;
+  height: auto; }
+
+.single-project div.border-bottom, .single-project p.border-bottom, .single-news div.border-bottom, .single-news p.border-bottom {
+  border-bottom: 1px solid #444; }
+
+.single-project a, .single-news a {
+  display: inline-block;
+  font-size: 10px;
+  color: #FFF;
+  margin: 0 4px 4px 0;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px; }
+
+.single-project p a:last-of-type, .single-news p a:last-of-type {
+  margin: 0; }
+
+.single-project p.align-right, .single-news p.align-right {
+  text-align: right; }
+
+.single-project .post-widget, .single-news .post-widget {
+  padding-bottom: 5px;
+  margin-bottom: 5px; }
+  .single-project .post-widget p, .single-news .post-widget p {
+    padding: 0;
+    margin: 0; }
+  .single-project .post-widget .post-date, .single-news .post-widget .post-date {
+    font-size: 10px; }
+
+.carousel-control.left {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efefef+0,1e5799+100&1+0,0+100 */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VmZWZlZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZTU3OTkiIHN0b3Atb3BhY2l0eT0iMCIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(left, #efefef 0%, rgba(30, 87, 153, 0) 100%);
+  /* FF3.6-15 */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #efefef), color-stop(100%, rgba(30, 87, 153, 0)));
+  /* Chrome4-9,Safari4-5 */
+  background: -webkit-linear-gradient(left, #efefef 0%, rgba(30, 87, 153, 0) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -o-linear-gradient(left, #efefef 0%, rgba(30, 87, 153, 0) 100%);
+  /* Opera 11.10-11.50 */
+  background: -ms-linear-gradient(left, #efefef 0%, rgba(30, 87, 153, 0) 100%);
+  /* IE10 preview */
+  background: linear-gradient(to right, #efefef 0%, rgba(30, 87, 153, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#001e5799',GradientType=1 );
+  /* IE6-8 */ }
+
+.carousel-control.right {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,efefef+100&0+0,1+100 */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNTc5OSIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZmVmZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(left, rgba(30, 87, 153, 0) 0%, #efefef 100%);
+  /* FF3.6-15 */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(30, 87, 153, 0)), color-stop(100%, #efefef));
+  /* Chrome4-9,Safari4-5 */
+  background: -webkit-linear-gradient(left, rgba(30, 87, 153, 0) 0%, #efefef 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -o-linear-gradient(left, rgba(30, 87, 153, 0) 0%, #efefef 100%);
+  /* Opera 11.10-11.50 */
+  background: -ms-linear-gradient(left, rgba(30, 87, 153, 0) 0%, #efefef 100%);
+  /* IE10 preview */
+  background: linear-gradient(to right, rgba(30, 87, 153, 0) 0%, #efefef 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#efefef',GradientType=1 );
+  /* IE6-8 */ }
+
+.carousel-control span.chevron {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; }
+
+.carousel-control span.chevron.chevron-left {
+  left: 10%;
+  background: url("../img/icon-left.png") no-repeat left center; }
+
+.carousel-control span.chevron.chevron-right {
+  right: 10%;
+  background: url("../img/icon-right.png") no-repeat left center; }
+
+.carousel-control span.chevron.chevron-left:hover, .carousel-control span.chevron.chevron-right:hover {
+  background-position: right center; }
+
+.carousel-control, .carousel-control:focus, .carousel-control:hover {
+  opacity: 1; }
+
+.carousel-caption a {
+  display: inline-block;
+  font-size: 10px;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  line-height: 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none; }
+
+.carousel-indicators li {
+  border: 1px solid rgba(0, 0, 0, 0.3); }
+
+.carousel-indicators .active {
+  background: rgba(0, 0, 0, 0.3); }
 
 footer {
   background: url(../img/blurred-trees.jpg);
@@ -334,6 +544,55 @@ footer {
     font-weight: 400; }
   footer .social-links {
     display: inline-block; }
+
+form.wpcf7-form p {
+  margin-bottom: 0;
+  padding: 15px; }
+  form.wpcf7-form p input[type="text"], form.wpcf7-form p input[type="email"], form.wpcf7-form p textarea {
+    width: 100%;
+    padding: 10px;
+    color: #666;
+    border: 0; }
+  form.wpcf7-form p input[type="submit"] {
+    display: inline-block;
+    position: relative;
+    color: #000;
+    margin: 15px 0 0;
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    border: 0; }
+
+form.wpcf7-form div.grey-bg {
+  position: relative;
+  background: rgba(255, 255, 255, 0.25); }
+
+form.wpcf7-form div.grey-bg:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: rgba(255, 255, 255, 0.25);
+  border-width: 15px;
+  margin-left: -15px; }
+
+form.wpcf7-form p.no-bg {
+  background: none; }
+
+form.wpcf7-form p.smallprint {
+  font-size: 9px;
+  padding: 0 15px 15px;
+  font-weight: normal;
+  text-align: left; }
+
+form.wpcf7-form img.ajax-loader {
+  display: block;
+  margin: 15px auto; }
 
 .spacer {
   min-height: 30px; }

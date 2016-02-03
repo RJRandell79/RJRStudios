@@ -4,15 +4,13 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6 col-md-offset-3">
 				<div class="spacer"></div>
 				<div class="subtitle">
 					<h2>Work with me</h2>
 				</div>
 
-				<div class="see-more">
-					<a href="" title="Email me">Email me</a>
-				</div>
+				<?php echo do_shortcode( '[contact-form-7 id="29" title="Footer Contact Form"]' ); ?>
 
 				<div class="spacer"></div>
 
