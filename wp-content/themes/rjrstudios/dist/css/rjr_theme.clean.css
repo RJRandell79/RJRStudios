@@ -541,6 +541,10 @@ blockquote p:last-child {
   text-decoration: none;
 }
 
+.navbar-brand > img {
+  display: block;
+}
+
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand {
     margin-left: -15px;
@@ -950,7 +954,7 @@ img.responsive {
 }
 
 header {
-  background: url(../img/blurred-trees.jpg);
+  background: url(../img/technology-concept-hex-code.jpg);
   background-size: cover;
 }
 
@@ -997,6 +1001,21 @@ header {
   background: rgba(0, 0, 0, 0.1);
 }
 
+.navbar-brand {
+  padding: 5px 0;
+}
+
+.navbar-brand img {
+  width: 60px;
+  height: auto;
+}
+
+/* uncss:ignore */
+
+.collapse.in {
+  display: block;
+}
+
 .header-title div {
   height: 2px;
   background: rgba(255, 255, 255, 0.75);
@@ -1019,7 +1038,7 @@ header {
   float: left;
   display: block;
   margin-right: 5px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.25);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1092,7 +1111,6 @@ header {
 }
 
 .project a.read-more,
-.service a.read-more,
 .news a.read-more {
   display: block;
   width: 110px;
@@ -1108,8 +1126,6 @@ header {
 
 .project a.read-more:hover,
 .project a.read-more:focus,
-.service a.read-more:hover,
-.service a.read-more:focus,
 .news a.read-more:hover,
 .news a.read-more:focus {
   text-decoration: none;
@@ -1143,7 +1159,7 @@ header {
 }
 
 .clients {
-  background: url(../img/blurred-trees.jpg);
+  background: url(../img/earth-at-night.jpg) no-repeat center top;
   background-size: cover;
   text-align: center;
 }
@@ -1167,7 +1183,8 @@ header {
   margin-right: 0;
 }
 
-.about h2 {
+.about h2,
+.about-page h2 {
   font-size: 38px;
   font-weight: 700;
   color: #000;
@@ -1176,17 +1193,20 @@ header {
   text-transform: uppercase;
 }
 
-.about strong {
+.about strong,
+.about-page strong {
   font-size: 12px;
   font-weight: 700;
 }
 
-.about p {
+.about p,
+.about-page p {
   font-size: 12px;
   margin-bottom: 10px;
 }
 
-.about .skill-bar {
+.about .skill-bar,
+.about-page .skill-bar {
   position: relative;
   width: 100%;
   height: 30px;
@@ -1194,26 +1214,29 @@ header {
   margin-bottom: 5px;
 }
 
-.about .skill-bar p {
+.about .skill-bar p,
+.about-page .skill-bar p {
   position: absolute;
   line-height: 30px;
   padding: 0 10px;
   color: #FFF;
 }
 
-.about .skill-bar p.right {
+.about .skill-bar p.right,
+.about-page .skill-bar p.right {
   right: 0;
   text-align: right;
 }
 
-.about .skill-bar div {
+.about .skill-bar div,
+.about-page .skill-bar div {
   position: absolute;
   height: 30px;
   background: #000;
 }
 
 .twitter {
-  background: url(../img/blurred-trees.jpg);
+  background: url(../img/earth-at-night.jpg) no-repeat center top;
   background-size: cover;
   text-align: center;
 }
@@ -1229,6 +1252,7 @@ header {
   margin: 15px 0;
   padding: 30px;
   background: rgba(255, 255, 255, 0.25);
+  line-height: 21px;
 }
 
 .twitter ul li span.entry-content a {
@@ -1279,7 +1303,7 @@ header {
 }
 
 .quote {
-  background: url(../img/blurred-trees.jpg);
+  background: url(../img/earth-at-night.jpg) no-repeat center top;
   background-size: cover;
   text-align: center;
 }
@@ -1291,7 +1315,7 @@ header {
   margin: 15px 0;
   padding: 30px;
   background: rgba(255, 255, 255, 0.25);
-  line-height: 50px;
+  line-height: 21px;
 }
 
 .quote p:after {
@@ -1385,33 +1409,32 @@ header {
 }
 
 .single-project p,
-.single-news p {
-  font-size: 12px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-}
-
-.single-project p strong,
-.single-news p strong {
-  font-size: 12px;
-  font-weight: 700;
-}
-
+.single-news p,
+.single-news li,
 .single-news blockquote {
   font-size: 12px;
   margin-bottom: 5px;
   padding-bottom: 5px;
 }
 
+.single-project p strong,
+.single-news p strong,
+.single-news li strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.single-news ul {
+  padding-left: 15px;
+}
+
+.single-news ul li {
+  list-style: disc outside;
+}
+
 .single-news img {
   width: 100%;
   height: auto;
-}
-
-.single-project p.border-bottom,
-.single-news div.border-bottom,
-.single-news p.border-bottom {
-  border-bottom: 1px solid #444;
 }
 
 .single-project a,
@@ -1423,6 +1446,19 @@ header {
   padding: 2px 6px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  word-break: break-all;
+}
+
+.single-project p.border-bottom,
+.single-news div.border-bottom,
+.single-news p.border-bottom {
+  border-bottom: 1px solid #444;
+}
+
+.single-project p.border-bottom a,
+.single-news div.border-bottom a,
+.single-news p.border-bottom a {
+  margin: 0 4px 0 0;
 }
 
 .single-project p a:last-of-type,
@@ -1442,6 +1478,27 @@ header {
 
 .single-news .post-widget .post-date {
   font-size: 10px;
+}
+
+.single-image-banner {
+  position: relative;
+}
+
+.single-image-banner a {
+  display: inline-block;
+  position: absolute;
+  bottom: 15px;
+  left: 40%;
+  right: 40%;
+  font-size: 10px;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  line-height: 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .carousel-control.left {
@@ -1503,14 +1560,8 @@ header {
   background: url("../img/icon-right.png") no-repeat left center;
 }
 
-.carousel-control span.chevron.chevron-left:hover,
-.carousel-control span.chevron.chevron-right:hover {
-  background-position: right center;
-}
-
 .carousel-control,
-.carousel-control:focus,
-.carousel-control:hover {
+.carousel-control:focus {
   opacity: 1;
 }
 
@@ -1536,7 +1587,7 @@ header {
 }
 
 footer {
-  background: url(../img/blurred-trees.jpg);
+  background: url(../img/earth-at-night.jpg) no-repeat center center;
   background-size: cover;
   text-align: center;
 }
@@ -1611,6 +1662,10 @@ form.wpcf7-form p.no-bg {
   background: none;
 }
 
+form.wpcf7-form p.hp {
+  display: none;
+}
+
 form.wpcf7-form p.smallprint {
   font-size: 9px;
   padding: 0 15px 15px;
@@ -1623,6 +1678,17 @@ form.wpcf7-form img.ajax-loader {
   margin: 15px auto;
 }
 
+div.wpcf7-response-output {
+  margin: 0;
+}
+
+/* uncss:ignore */
+
+div.wpcf7-validation-errors {
+  color: #000;
+  background: #F7E700;
+}
+
 .spacer {
   min-height: 30px;
 }
@@ -1633,5 +1699,12 @@ form.wpcf7-form img.ajax-loader {
     margin-bottom: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 479px) {
+  .single-image-banner a {
+    left: 25%;
+    right: 25%;
   }
 }

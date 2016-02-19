@@ -13,7 +13,7 @@
 				<div class="subtitle">
 					<h2>What I have done</h2>
 				</div>
-				<p class="sub-blurb"><strong>Zril consulatu conclusionemque quo at. Mazim salutatus hendrerit usu no.</strong> Labore urbanitas instructior ex eum, scripserit interesset ei pro. Ut his fierent vivendum, te sea denique repudiandae. Dolores gloriatur sententiae no eam, eum ex error ornatus invidunt.</p>
+				<p class="sub-blurb"><strong>Below is a selection of some of the most recent projects that I have been involved in.</strong> This selection of my projects includes 3D modelling and websites.</p>
 
 			</div>
 		</div>
@@ -54,12 +54,19 @@
 				<?php if ( $project_id ) : 
 					$project_url = wp_get_attachment_image_src( $project_id, 'full', true );
 				?>
-				<img class="responsive" src="<?php echo $project_url[ 0 ]; ?>" alt="<?php echo the_title(); ?>" />
+
+				<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>">
+					<img class="responsive" src="<?php echo $project_url[ 0 ]; ?>" alt="<?php echo the_title(); ?>" />
+				</a>
 
 				<?php else: 
 					$project_url = get_template_directory_uri() . '/dist/img/placeholder-image-1.jpg';
 				?>
-				<img class="responsive" src="<?php echo $project_url; ?>" alt="<?php echo the_title(); ?>" />
+
+				<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>">
+					<img class="responsive" src="<?php echo $project_url; ?>" alt="<?php echo the_title(); ?>" />
+				</a>
+				
 	
 				<?php endif; ?>
 
@@ -80,6 +87,73 @@
 
 		<div class="pagination">
 			<?php html5wp_pagination(); ?>
+		</div>
+
+		<div class="spacer"></div>
+
+	</article>
+</section>
+
+<?php elseif( is_page( 38 ) ) : ?>
+
+<!-- Section: About Page -->
+<section class="container-fluid">
+	<article class="container">
+
+		<div class="row about-page">
+			<div class="col-md-7">
+				<div class="spacer"></div>
+
+				<?php if( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+				<div class="subtitle">
+					<h2><?php the_title(); ?></h2>
+				</div>
+				<p class="sub-blurb"><?php the_content(); ?></p>
+
+				<?php endwhile; endif; ?>
+
+			</div>
+
+			<div class="col-md-5">
+
+				<div class="spacer"></div>
+
+				<?php $portrait_id = get_post_thumbnail_id(); ?>
+
+				<?php if ( $portrait_id ) : 
+					$portrait_url = wp_get_attachment_image_src( $portrait_id, 'full', true ); 
+				?>
+				<img class="responsive" src="<?php echo $portrait_url[ 0 ]; ?>" alt="<?php echo the_title(); ?>" />
+
+				<?php else: 
+					$portrait_url = get_template_directory_uri() . '/dist/img/placeholder-image-1.jpg';
+				?>
+				<img class="responsive" src="<?php echo $portrait_url; ?>" alt="<?php echo the_title(); ?>" />
+	
+				<?php endif; ?>
+
+				<div class="spacer"></div>
+
+				<?php if( have_rows( 'skillset' ) ) : ?>
+
+				<ul>
+					<?php while( have_rows( 'skillset' ) ) : the_row(); ?>
+					
+					<li>
+						<div class="skill-bar">
+							<div style="width: <?php the_sub_field( 'skill_rating' ); ?>%;"></div>
+							<p><?php the_sub_field( 'skill_name' ); ?></p>
+							<p class="right"><?php the_sub_field( 'skill_rating' ); ?>%</p>
+						</div>
+					</li>
+
+					<?php endwhile; ?>
+				</ul>
+
+				<?php endif; ?>
+
+			</div>
 		</div>
 
 		<div class="spacer"></div>

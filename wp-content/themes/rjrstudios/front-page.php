@@ -12,7 +12,7 @@
 				<div class="subtitle">
 					<h2>What I have done</h2>
 				</div>
-				<p class="sub-blurb"><strong>Zril consulatu conclusionemque quo at. Mazim salutatus hendrerit usu no.</strong> Labore urbanitas instructior ex eum, scripserit interesset ei pro. Ut his fierent vivendum, te sea denique repudiandae. Dolores gloriatur sententiae no eam, eum ex error ornatus invidunt.</p>
+				<p class="sub-blurb"><strong>Below are some of the recent projects that I completed.</strong> Some of these projects are personal and some have been done during my employment at various agencies.</p>
 
 			</div>
 		</div>
@@ -113,11 +113,10 @@
 		<div class="spacer"></div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-7">
 				<h2>Hello, I&rsquo;m Rob.</h2>
-				<p><strong>I specialise in creating and developing defining digital experiences.</strong> I am a UK based digital developer currently working at mmadigital. I collabrate with User Experience (UX) Specialists and other Digital Designers and Digital Developers to create positive user experiences in all my projects. I have well over 10 years commerical experience in helping bring great ideas to life.</p>
 
-				<p>I absolutely love good clean minimalist design and have a passion of all things digital and emerging technologies such as Augmented Reality. I develop native iOS applications as a hobby and attend other industry related events. I have an interest in computers, video games and technology.</p>
+				<?php the_field( 'about_content', 38 ); ?>
 
 				<div class="spacer"></div>
 
@@ -141,9 +140,9 @@
 
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-5">
 
-				<?php $portrait_id = get_post_thumbnail_id( 40 ); ?>
+				<?php $portrait_id = get_post_thumbnail_id( 38 ); ?>
 
 				<?php if ( $portrait_id ) : 
 					$portrait_url = wp_get_attachment_image_src( $portrait_id, 'full', true ); 
@@ -199,7 +198,7 @@
 				<div class="subtitle">
 					<h2>What I provide</h2>
 				</div>
-				<p class="sub-blurb"><strong>Zril consulatu conclusionemque quo at. Mazim salutatus hendrerit usu no.</strong> Labore urbanitas instructior ex eum, scripserit interesset ei pro. Ut his fierent vivendum, te sea denique repudiandae. Dolores gloriatur sententiae no eam, eum ex error ornatus invidunt.</p>
+				<p class="sub-blurb"><strong>Below are some of the services that I can offer.</strong> I collabrate User Experience (UX) Specialists and other Digital Designers and Digital Developers to create positive user experiences in all my projects.</p>
 
 			</div>
 		</div>
@@ -245,8 +244,8 @@
 				<?php endif; ?>
 
 				<h3 class="underline"><?php the_title(); ?></h3>
-				<p><?php echo balanceTags( wp_trim_words( get_the_content(), $num_words = 30, $more = '&hellip;' ), true ); ?></p>
-				<a class="read-more" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">More details</a>
+				<p><?php the_content(); ?></p>
+				
 			</div>
 		</div>
 
@@ -296,7 +295,7 @@
 				<div class="subtitle">
 					<h2>What I have written</h2>
 				</div>
-				<p class="sub-blurb"><strong>Zril consulatu conclusionemque quo at. Mazim salutatus hendrerit usu no.</strong> Labore urbanitas instructior ex eum, scripserit interesset ei pro. Ut his fierent vivendum, te sea denique repudiandae. Dolores gloriatur sententiae no eam, eum ex error ornatus invidunt.</p>
+				<p class="sub-blurb"><strong>Below are some of my thoughts on recent developments within the industry.</strong> These are my opinions only and do not reflect those of my employers.</p>
 
 			</div>
 		</div>

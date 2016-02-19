@@ -84,9 +84,12 @@
 						?>
 
 						<?php if ( $banner && $banner_link ) : ?>
-							<a href="<?php the_field( 'banner_link' ); ?>" title="<?php echo the_title(); ?>">
+						
+						<div class="single-image-banner">
 							<img class="responsive" src="<?php echo $banner; ?>" alt="<?php echo the_title(); ?>" />
-						</a>
+
+							<a href="<?php the_field( 'banner_link' ); ?>" title="<?php echo the_title(); ?>">See screenshot</a>
+						</div>
 
 						<?php else: 
 							$thumbnail_url = get_template_directory_uri() . '/dist/img/placeholder-full-width-image-1200x380.jpg';
@@ -114,6 +117,14 @@
 							<p class="border-bottom"><strong>Client:</strong> <?php the_field( 'client' ); ?></p>
 							<p class="border-bottom"><strong>Skills:</strong> <?php the_tags( '', '' ); ?></p>
 
+							<?php 
+								$weblink = get_field( 'website_link' ); 
+								if( $weblink ) :
+							?>
+							<p class="border-bottom"><strong>Website:</strong> <a href="<?php the_field( 'website_link' ); ?>" title="Go to website" target="_blank">Open in new tab</a></p>
+
+							<?php endif; ?>
+
 							<?php if( get_next_post() ) : ?>
 								<p class="border-bottom"><strong>Next project: </strong><?php next_post_link( '%link' ); ?></p>
 							<?php endif; ?>
@@ -122,7 +133,7 @@
 								<p class="border-bottom"><strong>Previous project: </strong> <?php previous_post_link( '%link' ); ?></p>
 							<?php endif; ?>
 
-							<p class="border-bottom"><strong>All projects: </strong><a href="<?php bloginfo( 'url' ); ?>/blog" title="See all articles">See all projects</a></p> 
+							<p class="border-bottom"><strong>All projects: </strong><a href="<?php bloginfo( 'url' ); ?>/portfolio" title="See all articles">See all projects</a></p> 
 							
 							
 
@@ -159,7 +170,7 @@
 							<p class="border-bottom"><strong>Date published:</strong> <?php the_time( 'jS F Y' ); ?></p>
 							<p class="border-bottom"><strong>Categories:</strong> <?php foreach( $categories as $category ) : ?>
 
-								<a href="<?php echo $category->slug; ?>" title="<?php echo $category->name; ?>"><?php echo $category->name; ?></a></p>
+								<a href="<?php echo bloginfo( 'url' ) . '/category/' . $category->category_nicename; ?>" title="<?php echo $category->name; ?>"><?php echo $category->name; ?></a></p>
 							<?php endforeach; ?>
 
 							<?php if( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'Blog Sidebar' ) ); ?>

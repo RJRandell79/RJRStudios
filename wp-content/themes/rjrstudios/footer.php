@@ -21,6 +21,7 @@
                     $linkedin = get_option( 'linkedin_url' );
                     $facebook = get_option( 'facebook_url' );
                     $pinterest = get_option( 'pinterest_url' );
+                    $analytics = get_option( 'analytics' );
                 ?>
 
                 <ul class="social-links clearfix">
@@ -46,6 +47,8 @@
 	</div>
 	
 	<?php wp_footer(); ?>
+
+    <?php if( $analytics ) : echo $analytics; endif; ?>
 
 </footer>
 

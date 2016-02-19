@@ -12,7 +12,7 @@
 				<div class="subtitle">
 					<h2>What I have written</h2>
 				</div>
-				<p class="sub-blurb"><strong>Zril consulatu conclusionemque quo at. Mazim salutatus hendrerit usu no.</strong> Labore urbanitas instructior ex eum, scripserit interesset ei pro. Ut his fierent vivendum, te sea denique repudiandae. Dolores gloriatur sententiae no eam, eum ex error ornatus invidunt.</p>
+				<p class="sub-blurb"><strong>Below are some of my thoughts on recent developments within the industry.</strong> These are my opinions only and do not reflect those of my employers.</p>
 
 			</div>
 		</div>

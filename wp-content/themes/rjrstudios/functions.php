@@ -185,6 +185,18 @@ function taxonomies_projects() {
 }
 add_action( 'init', 'taxonomies_projects', 0 );
 
+/* -- To display custom post types that have been tagged on the tag.php page -- */
+
+function display_cpt_tags( $query ) {
+
+    if( is_tag() && $query->is_main_query() ) {
+        
+        $post_types = get_post_types();
+        $query->set( 'post_type', $post_types );
+    }
+}
+add_filter( 'pre_get_posts', 'display_cpt_tags' );
+
 /* -- Pagination -- */
 
 function html5wp_pagination() {
@@ -202,13 +214,20 @@ function html5wp_pagination() {
 }
 add_action( 'init', 'html5wp_pagination' );
 
+/* -- SEO Yoast Locale -- */
+
+function override_og_locale( $locale ) {
+    return "en_GB";
+}
+add_filter( 'wpseo_locale', 'override_og_locale' );
+
 /* -- Add Global Site Options Page -- */
 
 function theme_settings_page() { ?>
 
     <div class="wrap">
         <?php settings_errors(); ?>
-        <h1>Curve Law Theme Panel &amp; Settings</h1>
+        <h1>RJR Studios Theme Panel &amp; Settings</h1>
         <form method="POST" action="options.php">
 
             <?php
