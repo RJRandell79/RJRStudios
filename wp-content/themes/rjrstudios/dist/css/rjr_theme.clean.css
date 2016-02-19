@@ -1689,6 +1689,111 @@ div.wpcf7-validation-errors {
   background: #F7E700;
 }
 
+/* uncss:ignore */
+
+.carousel-inner > .item.next {
+  left: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .item.active.left {
+  left: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .item.active,
+.carousel-inner > .item.next.left {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .active {
+  left: 0;
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .next {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 100%;
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .next.left {
+  left: 0;
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .active.left {
+  left: -100%;
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .item.prev {
+  right: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .item.active.right {
+  right: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .item.prev.right {
+  right: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  right: 100%;
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .prev.right {
+  right: 0;
+}
+
+/* uncss:ignore */
+
+.carousel-inner > .active.right {
+  right: 100%;
+}
+
 .spacer {
   min-height: 30px;
 }
